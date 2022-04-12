@@ -105,15 +105,19 @@
         <span class="close ">&times;</span>
       </div>
       <div class="container w-75 bg-white" >
-      <form class="d-flex flex-column" method="POST" name="form">
+      <form class="d-flex flex-column" method="POST" name="addform" id="addform">
         <label class="form-label">name</label>
-        <input type="text"  class="form-control " name="name" placeholder="Entrer le nom">
+        <input type="text"  class="form-control " id="name" name="name" placeholder="Entrer le nom">
+        <small id="messagename" class="text-danger "></small>
         <label class="form-label">email</label>
-        <input type="text"  class="form-control " name="email" placeholder="Enter l'email">
+        <input type="text"  class="form-control " id="email" name="email" placeholder="Enter l'email">
+        <small id="messagemail" class="text-danger "></small>
         <label class="form-label">Phone</label>
-        <input type="tel"  class="form-control " name="phone" placeholder="Enter phone">
+        <input type="tel"  class="form-control " id="phone" name="phone" placeholder="Enter phone">
+        <small id="messagephone" class="text-danger "></small>
         <label class="form-label">Adresse</label>
-        <input type="Adresse"  class="form-control "  name="enroll" placeholder="Enter Adresse">
+        <input type="Adresse"  class="form-control " id="adress"  name="enroll" placeholder="Enter Adresse">
+        <small id="messageadress" class="text-danger "></small>
         <input class=" btn bg-secondary text-white m-5 p-2 " type="submit" value="add" name="save" >  
     </form>
   </div>
