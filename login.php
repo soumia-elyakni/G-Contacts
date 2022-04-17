@@ -16,8 +16,10 @@ if (isset($_POST['submit'])){
  if($user){
     header("location:profil.php");  
  }else {
-    // echo "<script>alert('Emailid / Password Not Match')</script>";
+     $msg = "User not existed";
  }
+} else {
+    $msg='';
 } 
 
 
@@ -53,7 +55,9 @@ if (isset($_POST['submit'])){
         <div class="px-1 text-center mt-3 pt-5 ">
             <h4 class="sign"><strong>LOG IN</strong></h4>
         <p class="enter text-muted ">Enter your credentials to access your account</p>
+        <small class="text-danger"> <?= "$msg" ?></small>
         </div>
+        
         <form class="signup container " method="POST" id="loginform" >
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label "><strong>username</strong></label>

@@ -2,7 +2,7 @@
 
 include_once 'fonction.php';
 
-include_once 'fonction.php';
+$msg = "";
 
 if(isset($_SESSION['login'])){
   
@@ -11,7 +11,26 @@ if(isset($_SESSION['login'])){
     }
   $func = new funct();  
 
-  
+  if (isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $user = $func -> isUserExist($username);
+     
+    if(!$user){
+        $add = $func-> addNewUser($username, $password);
+          
+        if($add){
+            $msg = "registered with success " ;
+            header("location: index.php");
+            
+        }else{ $msg = "not registred";}
+        
+
+    } else {
+        $msg = "Username already, used try another!";
+        
+    }
+  }
 
 ?>
 
@@ -51,6 +70,7 @@ if(isset($_SESSION['login'])){
                 <label for="exampleInputEmail1" class="form-label "><strong>username</strong></label>
                 <input type="text" class="form-control" placeholder="Enter your username" id="username" name="username" >
                 <small id="messagename" class="text-danger"></small>
+                <small class="text-danger"><?php echo "$msg"?></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label"><strong>Password</strong></label>
