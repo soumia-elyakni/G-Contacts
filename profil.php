@@ -4,7 +4,7 @@ include_once 'fonction.php';
 
 if(!isset($_SESSION['login'])){
   
-   header("location: login.php");
+   header("location: index.php");
    
    }
 
