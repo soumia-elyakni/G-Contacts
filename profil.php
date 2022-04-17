@@ -8,6 +8,10 @@ if(!isset($_SESSION['login'])){
    
    }
 
+   $username = $_SESSION['username'] ;
+   $signupdate = $_SESSION['datesignup'] ;
+  //  $lastlogin = ;
+
    ?>
 
 
@@ -44,11 +48,11 @@ if(!isset($_SESSION['login'])){
         <tbody>
           <tr>
             <th scope="row">Username:</th>
-            <td></td> 
+            <td> <?= "$username" ?> </td> 
           </tr>
           <tr>
-            <th scope="row">Signup date:</th>
-            <td></td>
+            <th scope="row">Signup date: </th>
+            <td> <?= "$signupdate" ?> </td>
           </tr>
           <tr>
             <th scope="row">Last login</th>
