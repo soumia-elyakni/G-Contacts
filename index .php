@@ -1,3 +1,14 @@
+<?php
+
+include_once 'fonction.php';
+
+if(isset($_SESSION['login'])){
+  
+    header("location: profil.php");
+    
+    }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +22,12 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <div class="container-fluid">
-        <a class="navbar-brand text-light" href="index.html">Acceuil</a>
+        <a class="navbar-brand text-light" href="index.php">Acceuil</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a class="nav-link active text-light" aria-current="page" href="login.html">login</a>
+                <a class="nav-link active text-light" aria-current="page" href="login.php">login</a>
         </div>
         </div>
     </nav>
@@ -26,8 +37,8 @@
         <h1>Hello !</h1>
         </div>
         <div class="text-left w-100 ms-5 mt-3 m-auto">
-            <p class="fs-5"><a href="signup.html">Sign up</a> to start creating your contact list.</p>
-            <p class="fs-5">Already have an account? <a href="login.html"> Login here</a></p>
+            <p class="fs-5"><a href="signup.php">Sign up</a> to start creating your contact list.</p>
+            <p class="fs-5">Already have an account? <a href="login.php"> Login here</a></p>
         </div>
     </div>
     </main>
