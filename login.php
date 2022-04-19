@@ -16,7 +16,7 @@ if (isset($_POST['submit'])){
  if($user){
     header("location:profil.php");  
  }else {
-     $msg = "User not existed";
+     $msg = "Username or Password Invalid";
  }
 } else {
     $msg='';
