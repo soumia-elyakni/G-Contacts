@@ -65,7 +65,7 @@ const messageAdress = document.getElementById('messageadress');
             contactAdress.style.borderColor = "red";          
         } else {
             messageAdress.textContent = "";
-            contactAdress.style.borderColor = "green";        
+            contactAdress.style.borderColor = "green"; 
         }
     })
 }  
