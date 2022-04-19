@@ -32,11 +32,11 @@ public $userId;
 
   //  Read Contact
 
-  public function showcontacts($userId){
+  public function showcontacts(){
 
     $conn = $this->db->connect();
     $Uid = $_SESSION["id"];
-    $qr = mysqli_query($conn, "SELECT * from contactliste WHERE $userId = $Uid") or die(); 
+    $qr = mysqli_query($conn, "SELECT * from contactliste WHERE userId = $Uid") or die(); 
     return $qr;
 
 }  
@@ -70,9 +70,9 @@ public $userId;
 
   // Delete Contact
   
-
-
 }
+
+  
 
   
 ?>

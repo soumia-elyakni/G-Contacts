@@ -8,9 +8,6 @@ if(!isset($_SESSION['login'])){
    
    }
 
-  //  $username = $_SESSION['username'] ;
-  //  $signupdate = $_SESSION['datesignup'] ;
-  //  $lastlogin = ;
 
    ?>
 
@@ -91,14 +88,30 @@ if(!isset($_SESSION['login'])){
           </tr>
         </thead>
         <tbody>
+        <?php
+         
+         $contact = new contact();
+         $liste= $contact -> showcontacts();
+         if ($liste->num_rows > 0) {
+          while ($row = $liste->fetch_assoc()) {
+        ?>
           <tr>
-            <th scope="row">Raouya</th>
-            <td>raouya@raouya.com</td>
-            <td>123-456-6789</td>
-            <td> Lot Riad Rue widad </td>
-            <td><a class="a" href="edit.html">Edit</a></td>
+            <th scope="row"><?= "$row[name]" ?></th>
+            <td><?= "$row[email]" ?></td>
+            <td><?= "$row[phone]" ?></td>
+            <td><?= "$row[adress]" ?></td>
+            <td><a class="a" href="edit.php">Edit</a></td>
             <td><a class="a" href="">Delete</a></td>
           </tr>
+
+          <?php
+            }
+          } else {
+            echo "le tableau est vide";
+          }
+
+          ?>
+        
         </tbody>
       </table>
 
