@@ -8,6 +8,22 @@ if(!isset($_SESSION['login'])){
    
    }
 
+  if(isset($_POST['save'])){
+
+    $contact = new contact();
+    
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $adress = $_POST['adress'];
+    $userId = $_SESSION['id'];
+    
+    $liste= $contact -> addContact($name, $email, $phone, $adress, $userId);
+
+  }
+
+  
+
 
    ?>
 
@@ -100,8 +116,8 @@ if(!isset($_SESSION['login'])){
             <td><?= "$row[email]" ?></td>
             <td><?= "$row[phone]" ?></td>
             <td><?= "$row[adress]" ?></td>
-            <td><a class="a" href="edit.php">Edit</a></td>
-            <td><a class="a" href="">Delete</a></td>
+            <td><button onclick="window.location.href='edit.php?index=<?= $row['id'] ?>'" class="bg-transparent  border border-none text-secondary">Edit</button></td>
+            <td><button onclick="window.location.href='delete.php?index=<?= $row['id'] ?>'" class="bg-transparent  border border-none text-secondary" name="delete">Delete</button></td>
           </tr>
 
           <?php
@@ -134,7 +150,7 @@ if(!isset($_SESSION['login'])){
         <input type="tel"  class="form-control " id="phone" name="phone" placeholder="Enter phone">
         <small id="messagephone" class="text-danger "></small>
         <label class="form-label">Adresse</label>
-        <input type="Adresse"  class="form-control " id="adress"  name="enroll" placeholder="Enter Adresse">
+        <input type="Adresse"  class="form-control " id="adress"  name="adress" placeholder="Enter Adresse">
         <small id="messageadress" class="text-danger "></small>
         <input class=" btn bg-secondary text-white mt-5 p-2 w-100 " type="submit" value="add" name="save" >  
     </form>
