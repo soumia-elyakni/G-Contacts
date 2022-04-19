@@ -6,6 +6,8 @@ require_once 'contact.php';
 
 session_start(); 
 
+$this->contact = new contact();
+
 class funct extends users {
     function __construct() {  
         
