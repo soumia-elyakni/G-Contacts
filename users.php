@@ -2,23 +2,21 @@
 
 
 class users {
+
+    // Attributs
   
     public $username;
     public $password;
     public $id;
     public $signupdate;
 
-    public function __construct($username, $password)
-    {
-        $this-> username = $username;
-        $this-> password = $password;
-        
-    }
+
 
     // function de Login
 
                 public function Login($username, $password){ 
                     $conn = $this->db->connect(); 
+                    
                     $res = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$username."' AND password = '".md5($password)."'");  
                     $user_data = mysqli_fetch_array($res);  
                 
@@ -32,6 +30,7 @@ class users {
                         $_SESSION['id'] = $user_data['id'];  
                         $_SESSION['username'] = $user_data['username'];
                         $_SESSION['datesignup'] = $user_data['datesignup'];
+                        $_SESSION['last-login'] = date('l jS \of F Y h:i:s A');
 
                         return TRUE;  
                     }  
