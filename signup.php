@@ -9,12 +9,12 @@ if(isset($_SESSION['login'])){
     header("location: profil.php");
     
     }
-  $func = new funct();  
+  $userObj = new users();  
 
   if (isset($_POST['submit'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $user = $func -> isUserExist($username);
+    $user = $userObj -> isUserExist($username);
      
     if(!$user){
         $add = $func-> addNewUser($username, $password);

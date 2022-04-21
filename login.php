@@ -6,12 +6,13 @@ if(isset($_SESSION['login'])){
     header("location: profil.php");
     
     }
-  $func = new funct();  
+    
+  $userObj = new users();  
 
 if (isset($_POST['submit'])){
    $username = $_POST['username'];
    $password = $_POST['password'];
-   $user = $func -> Login($username, $password);
+   $user = $userObj -> Login($username, $password);
 
  if($user){
     header("location:profil.php");  

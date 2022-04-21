@@ -2,14 +2,20 @@
 
 
 class users {
-
     // Attributs
   
     public $username;
     public $password;
     public $id;
     public $signupdate;
-
+ 
+    // Méthode 
+    function __construct() {  
+        
+        // creat connexion object 
+        $this->db = new connexion(); 
+           
+    } 
 
 
     // function de Login
