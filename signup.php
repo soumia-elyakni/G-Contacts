@@ -17,7 +17,7 @@ if(isset($_SESSION['login'])){
     $user = $userObj -> isUserExist($username);
      
     if(!$user){
-        $add = $func-> addNewUser($username, $password);
+        $add = $userObj-> addNewUser($username, $password);
           
         if($add){
             $msg = "registered with success " ;

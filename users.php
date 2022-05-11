@@ -2,50 +2,39 @@
 
 
 class users {
-    // Attributs
-  
+    // Attributs :
     public $username;
     public $password;
     public $id;
     public $signupdate;
  
-    // Méthode 
-    function __construct() {  
-        
-        // creat connexion object 
-        $this->db = new connexion(); 
-           
+    // Méthodes :
+
+    function __construct() {   
+        $this->db = new connexion();    
     } 
 
+    public function Login($username, $password) { 
+        $conn = $this->db->connect(); 
+        
+        $res = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$username."' AND password = '".md5($password)."'");  
+        $user_data = mysqli_fetch_array($res);  
+        
+        $no_rows = mysqli_num_rows($res);  
 
-    // function de Login
+        if ($no_rows == 1){  
+            $_SESSION['login'] = true;  
+            $_SESSION['id'] = $user_data['id'];  
+            $_SESSION['username'] = $user_data['username'];
+            $_SESSION['datesignup'] = $user_data['datesignup'];
+            $_SESSION['last-login'] = date('l jS \of F Y h:i:s A');
 
-                public function Login($username, $password){ 
-                    $conn = $this->db->connect(); 
-                    
-                    $res = mysqli_query($conn, "SELECT * FROM users WHERE username = '".$username."' AND password = '".md5($password)."'");  
-                    $user_data = mysqli_fetch_array($res);  
-                
-                    // print_r($user_data);  
-                    $no_rows = mysqli_num_rows($res);  
+            return TRUE; 
 
-                    if ($no_rows == 1)   
-                    {  
-                    
-                        $_SESSION['login'] = true;  
-                        $_SESSION['id'] = $user_data['id'];  
-                        $_SESSION['username'] = $user_data['username'];
-                        $_SESSION['datesignup'] = $user_data['datesignup'];
-                        $_SESSION['last-login'] = date('l jS \of F Y h:i:s A');
-
-                        return TRUE;  
-                    }  
-                    else  
-                    {  
-                        return FALSE;  
-
-                    }  
-                } 
+        }  else  {  
+            return FALSE;  
+        }  
+    } 
             
     //   fonction de registrartion
 
